@@ -607,11 +607,11 @@ DEFAULT_TOML_README_MD_STR = """
 
 
 def _initial_version() -> str:
-    return dt.datetime.utcnow().strftime("%Y.1001-alpha")
+    return dt.datetime.utcnow().strftime("%Y.1001-dev")
 
 
 def _initial_version_pep440() -> str:
-    return dt.datetime.utcnow().strftime("%Y.1001a0")
+    return dt.datetime.utcnow().strftime("%Y.1001dev0")
 
 
 def default_config(ctx: ProjectContext) -> str:

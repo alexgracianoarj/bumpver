@@ -80,7 +80,7 @@ PART_PATTERNS = {
     'PATCH'  : r"[0-9]+",
     'BUILD'  : r"[0-9]+",
     'BLD'    : r"[1-9][0-9]*",
-    'TAG'    : r"preview|final|alpha|beta|post|rc",
+    'TAG'    : r"preview|dev|final|alpha|beta|post|rc",
     'PYTAG'  : r"post|rc|a|b",
     'GITHASH': r"\.[0-9]+\+.*",
     'NUM'    : r"[0-9]+",

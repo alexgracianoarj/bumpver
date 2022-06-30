@@ -55,7 +55,7 @@ PYCALVER_PATTERN = r"""
     )
     (?P<release>
         \-                      # "-" release prefix
-        (?P<release_tag>alpha|beta|dev|rc|post)
+        (?P<release_tag>dev|alpha|beta|dev|rc|post)
     )?
 )(?:\s|$)
 """
