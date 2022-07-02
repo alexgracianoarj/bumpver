@@ -739,6 +739,11 @@ def _parse_vcs_options(
     default=None,
     help="Push to the default remote.",
 )
+@click.option(
+    "--ignore-largest-tag/--no-ignore-largest-tag",
+    default=None,
+    help="Ignore largest tag from vcs.",
+)
 def update(
     dry           : bool = False,
     allow_dirty   : bool = False,
@@ -756,6 +761,7 @@ def update(
     commit        : typ.Optional[bool] = None,
     tag_commit    : typ.Optional[bool] = None,
     push          : typ.Optional[bool] = None,
+    ignore_largest_tag : typ.Optional[bool] = None,
 ) -> None:
     """Update project files with the incremented version string."""
     verbose = max(_VERBOSE, verbose)
@@ -775,7 +781,8 @@ def update(
         logger.warning(f"Invalid argument: {ex}")
         sys.exit(1)
 
-    cfg = _update_cfg_from_vcs(cfg, fetch)
+    if ignore_largest_tag is None or not ignore_largest_tag:
+        cfg = _update_cfg_from_vcs(cfg, fetch)
 
     old_version = cfg.current_version
     if set_version is None:
